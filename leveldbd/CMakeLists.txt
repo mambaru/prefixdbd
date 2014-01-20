@@ -15,6 +15,6 @@ add_executable(leveldbd leveldb.cpp)
 
 #message(STATUS ${COMET} )
 
-target_link_libraries(leveldbd wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub leveldb_storage wfc_leveldb)
-add_dependencies(leveldbd wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub leveldb_storage wfc_leveldb)
+target_link_libraries(leveldbd wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_leveldb leveldb_storage pthread)
+add_dependencies(leveldbd wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_leveldb leveldb_storage)
 build_info(leveldbd leveldbd)
