@@ -7,20 +7,20 @@
 #include "build_info.h"
 #include <core/build_info.h>
 
-#include <module/demo_module.hpp>
+#include <module/leveldb_module.hpp>
 
 
 int main(int argc, char* argv[])
 {
   return wfc::wfc(
-    demod_build_info_string,
+    leveldb_build_info_string,
     {
       { "startup", std::make_shared< wfc::startup_module   >() },
       { "core",    std::make_shared< wfc::core_module   >() },
       { "config",  std::make_shared< wfc::config_module >() },
       { "logger",  std::make_shared< wfc::logger_module >() }, 
       { "hub",     std::make_shared< wfc::hub_module    >() }, 
-      { "demo",    std::make_shared< wamba::demo::demo_module >() }
+      { "leveldb",    std::make_shared< wamba::leveldb::leveldb_module >() }
     }
   ).run(argc, argv);
 }

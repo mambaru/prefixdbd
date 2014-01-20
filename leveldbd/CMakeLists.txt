@@ -7,14 +7,14 @@ include_directories(../wfc_core)
 include_directories(../wfc_logger)
 include_directories(../wfc_hub)
 include_directories(../wfc_leveldb)
-include_directories(../leveldb)
+#include_directories(../leveldb)
 
-add_executable(leveldb leveldb.cpp)
+add_executable(leveldbd leveldb.cpp)
 
 #find_library(COMET NAMES comet PATHS ../../comet/build/comet NO_DEFAULT_PATH)
 
 #message(STATUS ${COMET} )
 
-target_link_libraries(leveldb wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub)
-add_dependencies(leveldb wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub)
-build_info(leveldb leveldb)
+target_link_libraries(leveldbd wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub leveldb_storage wfc_leveldb)
+add_dependencies(leveldbd wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub leveldb_storage wfc_leveldb)
+build_info(leveldbd leveldbd)
