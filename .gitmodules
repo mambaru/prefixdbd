@@ -1,0 +1,27 @@
+[submodule "wfc_leveldb"]
+	path = wfc_leveldb
+	url = git@gitlab.lan:cpp/wfc_leveldb.git
+[submodule "faslib"]
+	path = faslib
+	url = https://github.com/migashko/faslib.git
+[submodule "wfc"]
+	path = wfc
+	url = git@gitlab.lan:cpp/wfc.git
+[submodule "git@gitlab.lan:cpp/wfc_core.git"]
+	path = git@gitlab.lan:cpp/wfc_core.git
+	url = git@gitlab.lan:cpp/wfc_config.git
+[submodule "wfc_config"]
+	path = wfc_config
+	url = git@gitlab.lan:cpp/wfc_config.git
+[submodule "wfc_core"]
+	path = wfc_core
+	url = git@gitlab.lan:cpp/wfc_core.git
+[submodule "wfc_hub"]
+	path = wfc_hub
+	url = git@gitlab.lan:cpp/wfc_hub.git
+[submodule "wfc_logger"]
+	path = wfc_logger
+	url = git@gitlab.lan:cpp/wfc_logger.git
+[submodule "wfc_startup"]
+	path = wfc_startup
+	url = git@gitlab.lan:cpp/wfc_startup.git
