@@ -7,6 +7,9 @@ include_directories(../wfc_core)
 include_directories(../wfc_logger)
 include_directories(../wfc_hub)
 include_directories(../wfc_leveldb)
+include_directories(../wfc_pubsub-service)
+include_directories(../wfc_pubsub-gateway)
+
 #include_directories(../leveldb)
 
 add_executable(leveldbd leveldb.cpp)
@@ -15,6 +18,6 @@ add_executable(leveldbd leveldb.cpp)
 
 #message(STATUS ${COMET} )
 
-target_link_libraries(leveldbd wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_leveldb leveldb_storage pthread)
-add_dependencies(leveldbd wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_leveldb leveldb_storage)
+target_link_libraries(leveldbd wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_pubsub-service wfc_pubsub-gateway wfc_leveldb leveldb_storage pthread)
+add_dependencies(leveldbd wfc wfc_startup wfc_core wfc_config wfc_logger wfc_hub wfc_pubsub-service wfc_pubsub-gateway wfc_leveldb leveldb_storage)
 build_info(leveldbd leveldbd)
