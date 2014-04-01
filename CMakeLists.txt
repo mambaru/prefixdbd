@@ -15,5 +15,7 @@ add_subdirectory(wfc_config)
 add_subdirectory(wfc_logger)
 add_subdirectory(wfc_hub)
 add_subdirectory(wfc_leveldb)
+add_subdirectory(wfc_pubsub-service)
+add_subdirectory(wfc_pubsub-gateway)
 add_subdirectory(leveldbd)
 
