@@ -6,6 +6,7 @@ include(BuildInfo)
 SET(
   wfc_repli_hub_source_list
   hub/repli_hub.cpp  
+  hub/repli_client.cpp  
   repli_hub_instance.cpp
 )
 
