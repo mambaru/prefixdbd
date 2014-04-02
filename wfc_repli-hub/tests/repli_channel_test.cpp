@@ -8,7 +8,7 @@ using namespace ::wfc;
 using namespace ::wfc::pubsub;
 
 int counter = 0;
-std::shared_ptr<repli_client> cli;
+std::shared_ptr<repli_channel> cli;
 
 void handler(ipubsub::request_publish_ptr req, ipubsub::publish_callback cb)
 {
@@ -49,13 +49,13 @@ void send_message()
 
 int main()
 {
-  cli = std::make_shared<repli_client>("test_channel", "test_client");
+  cli = std::make_shared<repli_channel>("test_channel"/*, "test_client"*/);
   send_message();
-  cli->subscribe(1, handler); // ++counter
+  cli->subscribe("test_client", 1, handler); // ++counter
   cli->fell(1);
-  cli->subscribe(1, handler); // ++counter
-  cli->subscribe(1, handler); // ++counter
-  cli->subscribe(1, handler); 
+  cli->subscribe("test_client", 1, handler); // ++counter
+  cli->subscribe("test_client", 1, handler); // ++counter
+  cli->subscribe("test_client", 1, handler); 
   
   send_message(); // ++counter
   cli->fell(1);
@@ -64,7 +64,7 @@ int main()
   send_message();
   send_message();
   
-  cli->subscribe(1, handler); // counter+=3
+  cli->subscribe("test_client", 1, handler); // counter+=3
   
   std::cout << "counter=" << counter << std::endl;
   if ( counter!=7 )

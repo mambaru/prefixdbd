@@ -1,11 +1,10 @@
-#pragma once
 
 #include <wfc/logger.hpp>
 #include <wfc/pubsub/ipubsub.hpp>
 #include <wfc/io/io_base.hpp>
 #include <list>
 #include <mutex>
-
+#include "repli_client.hpp"
 namespace wfc{
 
 repli_client::~repli_client()
