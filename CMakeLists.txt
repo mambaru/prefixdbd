@@ -20,3 +20,4 @@ add_subdirectory(wfc_pubsub-gateway)
 add_subdirectory(wfc_repli-hub)
 add_subdirectory(leveldbd)
 
+install(DIRECTORY configurations DESTINATION ${CMAKE_INSTALL_PREFIX})
