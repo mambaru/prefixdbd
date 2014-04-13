@@ -64,6 +64,19 @@ class leveldb:
   
   def lua_run(self, lua_code):
     return self.request('lua_run', {"code":lua_code} )
+  
+  def get_range(self, frm, to="~", offset=0, limit=100):
+    return self.request(
+        'get_range',
+        {
+          'from':frm,
+          'to':to,
+          'offset':offset,
+          'limit':limit
+        }
+      )
+
+
 
 if __name__ == '__main__':
   cli = leveldb()
@@ -110,23 +123,30 @@ if __name__ == '__main__':
   print "update_packed result: key1={0}, key2={1}, key3={2}, key4={3}, key5={4}, key6={5}".format(res['key1'], res['key2'], res['key3'], res['key4'], res['key5'], res['key6'])
   
   res = cli.delete(["key1", "key2", "key3", "key4", "key5", "key6", "keyX", "keyY"])
+
   
   res = cli.lua_run(
     '''
-      put("key1":"lua")
-      put("key2":"lua")
-      put("key3":"lua")
+      put('key1','lua')
+      put("key2","lua")
+      put("key3","lua")
       
       counter=1
       function foo(key, value)
-        put(key, value + counter)
-        counter+=1
+        put(key, value .. tostring(counter) )
+        counter=counter+1
       end
-      
+      foreach("key1", "key3", foo)
+      set_result('"Done"')
     '''
   )
+  
   #set_result("\"Done\"")
   print ( "lua result:{0}".format(res) )
   
-  res = cli.get(["key1", "key2"])
-  print "get result: key1={0}, key2={1}".format(res['key1'], res['key2'])
+  res = cli.get(["key1", "key2", "key3"])
+  print "get result: key1={0}, key2={1}, key2={2}".format(res['key1'], res['key2'], res['key3'])
+  
+  res = cli.get_range('key')
+  print "get_range result: key1={0}, key2={1}, key3={2}".format(res['key1'], res['key2'], res['key3'])
+
