@@ -1,0 +1,27 @@
+{
+  "host":"0.0.0.0", 
+  "port":12345,
+  "count":100,
+  "threads":10,
+  "repeat":100, 
+  "requests":[
+    {
+      "method":"set", 
+      "params":{
+        "key$":"$"
+      }
+    }, 
+    {
+      "method":"has", 
+      "params":[
+        "key$"
+      ]
+    }, 
+    {
+      "method":"has", 
+      "params":[
+        "key$$"
+      ]
+    }
+  ]
+}
