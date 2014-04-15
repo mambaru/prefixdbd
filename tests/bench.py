@@ -72,9 +72,10 @@ if __name__ == '__main__':
                   help="options json file", metavar="FILE")
 
   (options, args) = parser.parse_args()
-  if not options:
+  if not options or not options.filename:
     parser.print_help()
     exit()
+    
   
   conf = Config(**json.load( open(options.filename) ))
   threads = []

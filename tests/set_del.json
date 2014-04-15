@@ -12,16 +12,16 @@
       }
     }, 
     {
-      "method":"has", 
+      "method":"del", 
       "params":[
         "key$"
       ]
     }, 
     {
-      "method":"has", 
-      "params":[
-        "key$$"
-      ]
+      "method":"set", 
+      "params":{
+        "key$":"$"
+      }
     }
   ]
 }
