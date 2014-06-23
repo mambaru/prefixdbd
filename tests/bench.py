@@ -52,8 +52,8 @@ def get_id():
 
 def call_thread(conf, pos):
   ldb = leveldb()
-  ldb.connect( conf.host, conf.port)
   for u in range(conf.repeat):
+    ldb.connect( conf.host, conf.port)
     for i in range(pos, conf.count, conf.threads):
       for r in range(len(conf.requests)):
         req = replace_dlr(conf.requests[r], str(i) )
@@ -64,6 +64,7 @@ def call_thread(conf, pos):
         print req
         print resp
         mutex.release()
+    ldb.close();
      
 
 if __name__ == '__main__':
@@ -92,11 +93,5 @@ if __name__ == '__main__':
 
   for t in xrange(conf.threads):
     threads[t].join()
-  '''
-  req = replace_dlr(conf.requests[0], "Z")
-  print(req)
   
-  ldb = leveldb()
-  ldb.connect( conf.host, conf.port)
-  '''
   

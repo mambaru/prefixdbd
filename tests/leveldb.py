@@ -14,6 +14,9 @@ class leveldb:
     self.cli = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     self.cli.connect( (addr, port) )
     
+  def close(self):
+    self.cli.close()
+    
   def send(self, req):
     self.cli.send(req+"\r\n")
     data = ""
