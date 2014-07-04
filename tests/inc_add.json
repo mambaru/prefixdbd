@@ -1,9 +1,9 @@
 {
   "host":"0.0.0.0", 
   "port":12345,
-  "count":100,
+  "count":1,
   "threads":10, 
-  "repeat":100, 
+  "repeat":1, 
 
   "requests":[
     {
