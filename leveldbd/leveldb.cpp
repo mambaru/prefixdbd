@@ -9,13 +9,14 @@
 #include <pubsub_gateway/pubsub_gateway_module.hpp>
 //#include <core/build_info.h>
 #include <module/leveldb_module.hpp>
-#include "build_info.h"
+#include "leveldbd_build_info.h"
+          
 
 
 int main(int argc, char* argv[])
 {
   return wfc::wfc(
-    leveldb_build_info_string,
+    leveldbd_build_info_string,
     {
       { "startup", std::make_shared< wfc::startup_module>() },
       { "core",    std::make_shared< wfc::core_module   >() },
