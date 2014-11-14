@@ -1,4 +1,5 @@
 include(BuildInfo)
+include(Wfc)
 
 include_directories(../wfc)
 include_directories(../wfc_startup)
