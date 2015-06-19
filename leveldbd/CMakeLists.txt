@@ -1,56 +1,18 @@
 include(BuildInfo)
-include(Wfc)
 
-include_directories(../wfc)
-include_directories(../wfc_startup)
-include_directories(../wfc_config)
-include_directories(../wfc_core)
-include_directories(../wfc_logger)
-include_directories(../wfc_hub)
-include_directories(../wfc_leveldb)
-include_directories(../wfc_repli-hub)
-include_directories(../wfc_pubsub-service)
-include_directories(../wfc_pubsub-gateway)
+include_directories(..)
 
+add_executable(leveldbd leveldbd.cpp )
 
-#include_directories(../leveldb)
-
-add_executable(leveldbd leveldb.cpp)
-
-#find_library(COMET NAMES comet PATHS ../../comet/build/comet NO_DEFAULT_PATH)
-
-#message(STATUS ${COMET} )
-
-target_link_libraries(
-  leveldbd 
-    wfc 
-    wfc_startup 
-    wfc_core 
-    wfc_config 
-    wfc_logger 
-    wfc_hub
-    wfc_repli-hub
-    wfc_pubsub-service 
-    wfc_pubsub-gateway 
-    wfc_leveldb 
-    leveldb_storage 
-    pthread
+SET(
+  leveldbd_lib_list
+    wfcroot
+    wfc_leveldbd
 )
 
-add_dependencies(
-  leveldbd 
-    wfc 
-    wfc_startup 
-    wfc_core 
-    wfc_config 
-    wfc_logger 
-    wfc_hub
-    wfc_repli-hub
-    wfc_pubsub-service 
-    wfc_pubsub-gateway 
-    wfc_leveldb 
-    leveldb_storage
-)
+target_link_libraries(leveldbd ${leveldbd_lib_list})
+
+add_dependencies(leveldbd ${leveldbd_lib_list})
 
 build_info(leveldbd leveldbd)
 
