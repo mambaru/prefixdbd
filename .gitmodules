@@ -1,6 +1,6 @@
 [submodule "wfc_leveldb"]
 	path = wfc_leveldb
-	url = git@gitlab.lan:cpp/wfc_leveldb.git
+	url = git@github.lan:cpp/wfc_leveldb.git
 [submodule "faslib"]
 	path = faslib
 	url = https://github.com/migashko/faslib.git

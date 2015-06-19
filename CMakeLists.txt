@@ -13,6 +13,6 @@ include_directories(wfcroot/iow)
 
 add_subdirectory(faslib)
 add_subdirectory(wfcroot)
-#add_subdirectory(wfc_leveldb)
+add_subdirectory(wfc_leveldb)
 add_subdirectory(leveldbd)
 
