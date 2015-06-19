@@ -17,3 +17,4 @@ add_dependencies(leveldbd ${leveldbd_lib_list})
 build_info(leveldbd leveldbd)
 
 install(TARGETS leveldbd DESTINATION ${CMAKE_INSTALL_PREFIX})
+
