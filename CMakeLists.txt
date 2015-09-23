@@ -7,11 +7,10 @@ if ( NOT WFC_READY )
   include(Wfc)
 endif()
 
-include_directories(faslib)
+include_directories(wfcroot/faslib)
 include_directories(wfcroot/wfc)
 include_directories(wfcroot/iow)
 
-add_subdirectory(faslib)
 add_subdirectory(wfcroot)
 add_subdirectory(wfc_leveldb)
 add_subdirectory(leveldbd)
