@@ -6,10 +6,9 @@
 
 int main(int argc, char* argv[])
 {
-  return ::wfc::wfc(
-    ::wfc::make_build_info<leveldbd_build_info>(), 
-    ::wfc::wfcroot({
+  return ::wfc::wfc<leveldbd_build_info>(::wfc::wfcroot(
+    {
       std::make_shared< ::wamba::leveldb::leveldb_package >()
-    })
-  ).run(argc, argv);
+    }
+  )).run(argc, argv);
 }
