@@ -8,6 +8,7 @@ SET(
   leveldbd_lib_list
     wfcroot
     wfc_leveldb
+    wfc_prefixdb
 )
 
 target_link_libraries(leveldbd ${leveldbd_lib_list})

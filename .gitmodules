@@ -3,7 +3,16 @@
 	url = git@github.lan:cpp/wfc_leveldb.git
 [submodule "faslib"]
 	path = faslib
-	url = https://github.com/migashko/faslib.git
+	url = git@github.lan:cpp/faslib.git
 [submodule "wfcroot"]
 	path = wfcroot
 	url = git@github.lan:cpp/wfcroot.git
+[submodule "wfc_prefixdb"]
+	path = wfc_prefixdb
+	url = git@github.lan:cpp/wfc_prefixdb.git
+[submodule "luajit-2.0"]
+	path = luajit-2.0
+	url = git@github.lan:cpp/luajit-2.0.git
+[submodule "google-leveldb"]
+	path = google-leveldb
+	url = git@github.lan:cpp/google-leveldb.git
