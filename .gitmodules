@@ -16,3 +16,6 @@
 [submodule "google-leveldb"]
 	path = google-leveldb
 	url = git@github.lan:cpp/google-leveldb.git
+[submodule "rocksdb"]
+	path = rocksdb
+	url = git@github.lan:cpp/rocksdb.git

@@ -6,7 +6,6 @@
     "vallen":20
   },
   
-
   "ini":["${ini-set}",10, "инициализация 10 уникальных значений"],
   "tst":["${tst-set}",10, "${tst-get}",10, "проверка get и set (по 10 запросов)"],
   "get":["${tst-get}",10, "10 get запросов"],
@@ -21,7 +20,7 @@
     "get-fail": {"method":"get", "params":"${tst-get-params}", "result":"${get-result-fail}"}
   },
   "params":{
-    "ini-set-params":{"key":"${ini-key}", "value":"${val}"},
+    "ini-set-params":{ "prefix":"aaaaa", "fields":[{"key":"${ini-key}", "value":"${val}"}]},
     "tst-set-params":{"${key}":"${val}"},
     "tst-get-params":["${key}"] 
   },
