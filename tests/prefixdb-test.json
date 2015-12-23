@@ -20,7 +20,7 @@
     "get-fail": {"method":"get", "params":"${tst-get-params}", "result":"${get-result-fail}"}
   },
   "params":{
-    "ini-set-params":{ "prefix":"aaaaa", "fields":[{"key":"${ini-key}", "value":"${val}"}]},
+    "ini-set-params":{ "prefix":"${keypref}", "nores":false, "noval":false, "fields":[{"key":"${ini-key}", "value":"${val}"}]},
     "tst-set-params":{"${key}":"${val}"},
     "tst-get-params":["${key}"] 
   },
