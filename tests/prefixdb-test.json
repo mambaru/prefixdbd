@@ -1,41 +1,55 @@
 {
   "options":{
     /*Длина префикса ключа*/
-    "keylen":20,
-    /*Длина префикса значений*/
-    "vallen":20
+    "keylen":5,
+    /*Длина префикса*/
+    "preflen":20,
+
+    "prefix":"{% ''.join( chr( ord('A') + ${C2} % 25 ) for _ in range( ${preflen} ) )  %}",
+    "keypref":"{% ''.join( chr( ord('A') + ${C2} % 25 ) for _ in range( ${keylen} ) )  %}"
   },
-  
-  "ini":["${ini-set}",10, "инициализация 10 уникальных значений"],
-  "tst":["${tst-set}",10, "${tst-get}",10, "проверка get и set (по 10 запросов)"],
-  "get":["${tst-get}",10, "10 get запросов"],
-  "set":["${tst-set}",10, "10 set запросов"],
+
+  "set1": [ "${set1-query}", 10, "${set1-query}", 10, "20 запросов set с минимальным результатом (nores=true)" ],
+  "set2": [ "${set2-query}", 10, "${set2-query}", 10, "20 запросов set с минимальным результатом (nores=true)" ],
+  "set3": [ "${set3-query}", 10, "${set3-query}", 10, "20 запросов set с минимальным результатом (nores=true)" ],
 
   "queries":{
-    "ini-set" : {"method":"set", "params":"${ini-set-params}", "result":"${set-result}"},
-    "tst-set" : {"method":"set", "params":"${tst-set-params}", "result":"${set-result}"},
-    "tst-get" : {"method":"get", "params":"${tst-get-params}", "result":"${get-result}"},
-    /* запросы с заведомо неверным результатом проверки */
-    "set-fail": {"method":"set", "params":"${tst-set-params}", "result":"${set-result-fail}"},
-    "get-fail": {"method":"get", "params":"${tst-get-params}", "result":"${get-result-fail}"}
+    "set1-query" : {"method":"set", "params":"${set1-params}", "result":"${set1-result}"},
+    "set2-query" : {"method":"set", "params":"${set2-params}", "result":"${set2-result}"},
+    "set3-query" : {"method":"set", "params":"${set3-params}", "result":"${set3-result}"}
   },
+
   "params":{
-    "ini-set-params":{ "prefix":"${keypref}", "nores":false, "noval":false, "fields":[{"key":"${ini-key}", "value":"${val}"}]},
-    "tst-set-params":{"${key}":"${val}"},
-    "tst-get-params":["${key}"] 
+    "set1-params":{
+      "prefix":"${prefix}",
+      "nores":true, 
+      "noval":true, 
+      "fields":[{"key":"${set-key1}", "val":"${set-val1}"}, {"key":"${set-key2}", "val":"${set-val2}"}]
+    },
+    "set2-params":{
+      "prefix":"${prefix}",
+      "nores":false, 
+      "noval":true, 
+      "fields":[{"key":"${set-key1}", "val":"${set-val1}"}, {"key":"${set-key2}", "val":"${set-val2}"}]
+    },
+    "set3-params":{
+      "prefix":"${prefix}",
+      "nores":false, 
+      "noval":false, 
+      "fields":[{"key":"${set-key1}", "val":"${set-val1}"}, {"key":"${set-key2}", "val":"${set-val2}"}]
+    }
   },
+
   "results":{
-    "set-result":{"status":true},
-    "get-result":{"status":true, "value":"${val}"},
-    "set-result-fail":{"status":false},
-    "get-result-fail":{"status":true, "value":"bla-bla"}
+    "set1-result": { "status":"OK", "prefix":"${prefix}", "fields":[]},
+    "set2-result": { "status":"OK", "prefix":"${prefix}", "fields":[{"key":"${set-key1}","ttl":0,"type": "any","val":""},{"key":"${set-key2}","ttl":0,"type":"any","val":""}]},
+    "set3-result": { "status":"OK", "prefix":"${prefix}", "fields":[{"key":"${set-key1}","ttl":0,"type":"any","val":"${set-val1}"},{"key":"${set-key2}","ttl":0,"type":"any","val":"${set-val2}"}]}
   },
-  /* Ключи и значения */
-  "keyval":{
-    "ini-key":"${keypref}-${I}-${C2}-I",
-    "key":"${keypref}-${I}-${C2}-V",
-    "val":"${valpref}-${I}-${C2}",
-    "keypref":"{% ''.join( chr( ord('A') + ${C2} % 25 ) for _ in range( ${keylen} ) )  %}",
-    "valpref":"{% ''.join( chr( ord('A') + ${C2} % 25 ) for _ in range( ${vallen} ) )  %}"
+
+  "values":{
+    "set-key1":"${keypref}-${I}-${C1}-${C2}-K1",
+    "set-val1":"${I}-${C1}-${C2}-V1",
+    "set-key2":"${I}-${C1}-${C2}-K2",
+    "set-val2":"${I}-${C1}-${C2}-V2"
   }
 }

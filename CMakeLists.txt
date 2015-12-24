@@ -35,6 +35,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/rocksdb/include)
 
 include_directories(wfc_leveldb)
 include_directories(wfc_prefixdb)
+include_directories(wdb)
 
 add_subdirectory(wfcroot)
 add_subdirectory(wfc_leveldb)

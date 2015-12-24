@@ -19,3 +19,6 @@
 [submodule "rocksdb"]
 	path = rocksdb
 	url = git@github.lan:cpp/rocksdb.git
+[submodule "wdb"]
+	path = wdb
+	url = git@github.lan:cpp/wdb.git
