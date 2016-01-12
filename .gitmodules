@@ -1,6 +1,3 @@
-[submodule "wfc_leveldb"]
-	path = wfc_leveldb
-	url = git@github.lan:cpp/wfc_leveldb.git
 [submodule "faslib"]
 	path = faslib
 	url = git@github.lan:cpp/faslib.git
@@ -13,9 +10,6 @@
 [submodule "luajit-2.0"]
 	path = luajit-2.0
 	url = git@github.lan:cpp/luajit-2.0.git
-[submodule "google-leveldb"]
-	path = google-leveldb
-	url = git@github.lan:cpp/google-leveldb.git
 [submodule "facebook-rocksdb"]
 	path = facebook-rocksdb
 	url = git@github.lan:cpp/facebook-rocksdb.git
