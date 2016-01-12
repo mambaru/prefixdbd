@@ -24,17 +24,15 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/google-leveldb/include)
 add_custom_target( 
   facebook-rocksdb
   COMMAND make CXX=g++-4.8 shared_lib
-  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/rocksdb
+  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/facebook-rocksdb
   VERBATIM
 )
-link_directories(${CMAKE_CURRENT_SOURCE_DIR}/rocksdb)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/rocksdb/include)
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/facebook-rocksdb)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/facebook-rocksdb/include)
 
 include_directories(wfc_leveldb)
 include_directories(wfc_prefixdb)
-include_directories(wdb)
 
-add_subdirectory(wdb)
 add_subdirectory(wfcroot)
 add_subdirectory(wfc_leveldb)
 add_subdirectory(wfc_prefixdb)
