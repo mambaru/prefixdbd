@@ -2,7 +2,7 @@
 
 #include <wfc/wfc.hpp>
 #include <wfcroot/wfcroot.hpp>
-#include <prefixdb/prefixdb_package.hpp>
+#include <prefixdb_package.hpp>
 
 int main(int argc, char* argv[])
 {

@@ -12,29 +12,18 @@ add_subdirectory(luajit-2.0)
 link_directories(${CMAKE_SOURCE_DIR}/luajit-2.0/src)
 include_directories(${CMAKE_SOURCE_DIR}/luajit-2.0/src)
 
-# google-leveldb
-#add_subdirectory(google-leveldb)
-#link_directories(${CMAKE_CURRENT_SOURCE_DIR}/google-leveldb)
-#include_directories(${CMAKE_CURRENT_SOURCE_DIR}/google-leveldb/include)
-
 # facebook-rocksdb
-
-#add_subdirectory(rocksdb)
-
 add_custom_target( 
   facebook-rocksdb
-  #COMMAND make CXX=g++-4.8 shared_lib
   COMMAND make shared_lib
-  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/facebook-rocksdb
+  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/facebook-rocksdb
   VERBATIM
 )
-link_directories(${CMAKE_CURRENT_SOURCE_DIR}/facebook-rocksdb)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/facebook-rocksdb/include)
+link_directories(${CMAKE_SOURCE_DIR}/facebook-rocksdb)
+include_directories(${CMAKE_SOURCE_DIR}/facebook-rocksdb/include)
 
-#include_directories(wfc_leveldb)
-include_directories(wfc_prefixdb)
+include_directories(${CMAKE_SOURCE_DIR}/wfc_prefixdb/package)
 
 add_subdirectory(wfcroot)
-#add_subdirectory(wfc_leveldb)
 add_subdirectory(wfc_prefixdb)
-add_subdirectory(prefixdbd)
+add_subdirectory(daemon)

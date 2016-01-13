@@ -9,41 +9,34 @@
     "keypref":"{% ''.join( chr( ord('A') + ${C2} % 25 ) for _ in range( ${keylen} ) )  %}"
   },
 
-  "set1": [ "${set1-query}", 10, "${set1-query}", 10, "20 запросов set с минимальным результатом (nores=true)" ],
-  "set2": [ "${set2-query}", 10, "${set2-query}", 10, "20 запросов set с минимальным результатом (nores=true)" ],
-  "set3": [ "${set3-query}", 10, "${set3-query}", 10, "20 запросов set с минимальным результатом (nores=true)" ],
+  "set1": [ "${set1-query}", 10, "${set1-query}", 10, "20 запросов set (nores=true, noval=true)" ],
+  "set2": [ "${set2-query}", 10, "${set2-query}", 10, "20 запросов set (nores=false, noval=true)" ],
+  "set3": [ "${set3-query}", 10, "${set3-query}", 10, "20 запросов set (nores=false, noval=false)" ],
+  "set4": [ "${set4-query}", 10, "10 запросов set с типом и force=true (nores=false, noval=false)" ],
+  "set5": [ "${set5-query}", 10, "10 запросов set с неправильным типом и force=false (nores=false, noval=false)" ],
 
   "queries":{
     "set1-query" : {"method":"set", "params":"${set1-params}", "result":"${set1-result}"},
     "set2-query" : {"method":"set", "params":"${set2-params}", "result":"${set2-result}"},
-    "set3-query" : {"method":"set", "params":"${set3-params}", "result":"${set3-result}"}
+    "set3-query" : {"method":"set", "params":"${set3-params}", "result":"${set3-result}"},
+    "set4-query" : {"method":"set", "params":"${set4-params}", "result":"${set4-result}"},
+    "set5-query" : {"method":"set", "params":"${set5-params}", "result":"${set5-result}"}
   },
 
   "params":{
-    "set1-params":{
-      "prefix":"${prefix}",
-      "nores":true, 
-      "noval":true, 
-      "fields":[{"key":"${set-key1}", "val":"${set-val1}"}, {"key":"${set-key2}", "val":"${set-val2}"}]
-    },
-    "set2-params":{
-      "prefix":"${prefix}",
-      "nores":false, 
-      "noval":true, 
-      "fields":[{"key":"${set-key1}", "val":"${set-val1}"}, {"key":"${set-key2}", "val":"${set-val2}"}]
-    },
-    "set3-params":{
-      "prefix":"${prefix}",
-      "nores":false, 
-      "noval":false, 
-      "fields":[{"key":"${set-key1}", "val":"${set-val1}"}, {"key":"${set-key2}", "val":"${set-val2}"}]
-    }
+    "set1-params":{ "prefix":"${prefix}", "nores":true,  "noval":true,  "fields":[{"key":"${set-key1}", "val":"${set-val1}"}, {"key":"${set-key2}", "val":"${set-val2}"}]},
+    "set2-params":{ "prefix":"${prefix}", "nores":false, "noval":true,  "fields":[{"key":"${set-key1}", "val":"${set-val1}"}, {"key":"${set-key2}", "val":"${set-val2}"}]},
+    "set3-params":{ "prefix":"${prefix}", "nores":false, "noval":false, "fields":[{"key":"${set-key1}", "val":"${set-val1}"}, {"key":"${set-key2}", "val":"${set-val2}"}]},
+    "set4-params":{ "prefix":"${prefix}", "nores":false, "noval":false, "fields":[{"key":"${set-key1}", "val":"${set-val1}", "type":"string", "force":true}]},
+    "set5-params":{ "prefix":"${prefix}", "nores":false, "noval":false, "fields":[{"key":"${set-key1}", "val":"${C1}", "type":"number", "force":false}]}
   },
 
   "results":{
     "set1-result": { "status":"OK", "prefix":"${prefix}", "fields":[]},
-    "set2-result": { "status":"OK", "prefix":"${prefix}", "fields":[{"key":"${set-key1}","ttl":0,"type": "any","val":""},{"key":"${set-key2}","ttl":0,"type":"any","val":""}]},
-    "set3-result": { "status":"OK", "prefix":"${prefix}", "fields":[{"key":"${set-key1}","ttl":0,"type":"any","val":"${set-val1}"},{"key":"${set-key2}","ttl":0,"type":"any","val":"${set-val2}"}]}
+    "set2-result": { "status":"OK", "prefix":"${prefix}", "fields":[{"key":"${set-key1}","ttl":0,"type":"any","val":""},{"key":"${set-key2}","ttl":0,"type":"any","val":""}]},
+    "set3-result": { "status":"OK", "prefix":"${prefix}", "fields":[{"key":"${set-key1}","ttl":0,"type":"any","val":"${set-val1}"},{"key":"${set-key2}","ttl":0,"type":"any","val":"${set-val2}"}]},
+    "set4-result": { "status":"OK", "prefix":"${prefix}", "fields":[{"key":"${set-key1}","ttl":0,"type":"string","val":"${set-val1}"}]},
+    "set5-result": { "status":"OK", "prefix":"${prefix}", "fields":[{"key":"${set-key1}","ttl":0,"type":"none","val":null}]}
   },
 
   "values":{
