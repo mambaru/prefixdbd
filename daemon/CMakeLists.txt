@@ -6,11 +6,11 @@ add_executable(prefixdbd prefixdbd.cpp )
 
 SET(
   prefixdbd_lib_list
-  wfcroot
   wfc_prefixdb
+  wfcroot
 )
 
-target_link_libraries(prefixdbd ${prefixdbd_lib_list})
+target_link_libraries(prefixdbd ${prefixdbd_lib_list}  )
 
 add_dependencies(prefixdbd ${prefixdbd_lib_list})
 
