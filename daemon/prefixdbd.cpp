@@ -11,10 +11,7 @@ int main(int argc, char* argv[])
       std::make_shared< ::wamba::prefixdb::prefixdb_package >()
     }
   )).run(argc, argv,
-    "PrefixDB демон на базе платформы WFC и модуля wfc_prefixdb, который обеспечивает\n"
-    "jsonrpc-интерфейс к rocksdb определенного формата (строка+метаданые). Для модуля\n"
-    "доступны следующие опции:\n"
-    "  export=<<path>> - преобразование баз в формат где все значения строчки\n"
-    "  import=<<path>> - преобразование баз в формат где все значения строчки"
+    "PrefixDB демон на базе платформы WFC и модуля wfc_prefixdb, предоставляет \n"
+    "jsonrpc-интерфейс к rocksdb. Список просмотра списка дополнительных опций: ./prefixdbd --info wfc_prefixdb "
   );
 }
