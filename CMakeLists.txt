@@ -24,6 +24,8 @@ include_directories(${CMAKE_SOURCE_DIR}/facebook-rocksdb/include)
 
 include_directories(${CMAKE_SOURCE_DIR}/wfc_prefixdb/package)
 
-add_subdirectory(wfcroot)
-add_subdirectory(wfc_prefixdb)
+
 add_subdirectory(daemon)
+add_subdirectory(wfc_prefixdb)
+add_subdirectory(wfcroot)
+
