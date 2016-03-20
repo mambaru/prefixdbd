@@ -2,11 +2,13 @@
   "options":{
     /*Длина префикса ключа*/
     "keylen":5,
+    "vallen":260,
     /*Длина префикса*/
-    "preflen":20,
+    "preflen":5,
 
     "prefix":"{% ''.join( chr( ord('A') + ${C2} % 25 ) for _ in range( ${preflen} ) )  %}",
-    "keypref":"{% ''.join( chr( ord('A') + ${C2} % 25 ) for _ in range( ${keylen} ) )  %}"
+    "keypref":"{% ''.join( chr( ord('A') + ${C2} % 25 ) for _ in range( ${keylen} ) )  %}",
+    "valpref":"{% ''.join( chr( ord('A') + ${C2} % 25 ) for _ in range( ${vallen} ) )  %}"
   },
 
   "inc1": [ "${del-query}", 1, "${inc1-query}", 10, "${get-query}", 1, "10 запросов inc , с предварительным удалением" ],
@@ -15,11 +17,14 @@
   "set1": [ "${set1-query}", 10, "${set1-query}", 10, "20 запросов set (nores=true, noval=true)" ],
   "set2": [ "${set2-query}", 10, "${set2-query}", 10, "20 запросов set (nores=false, noval=true)" ],
   "set3": [ "${set3-query}", 10, "${set3-query}", 10, "20 запросов set (nores=false, noval=false)" ],
+  "set": [ "${sett-query}", 1, "1 запросов set для префикса test (nores=false, noval=false)" ],
+  "sett": [ "${sett-query}", 1, "${del-query}", 1, "${inc1-query}", 1, "10 запросов set для префикса test (nores=false, noval=false)" ],
 
   "queries":{
     "set1-query" : {"method":"set", "params":"${set1-params}", "result":"${set1-result}"},
     "set2-query" : {"method":"set", "params":"${set2-params}", "result":"${set2-result}"},
     "set3-query" : {"method":"set", "params":"${set3-params}", "result":"${set3-result}"},
+    "sett-query" : {"method":"set", "params":"${sett-params}", "result":"${sett-result}"},
     "inc1-query" : {"method":"inc", "params":"${inc1-params}", "result":"${inc1-result}"},
     "del-query" :  {"method":"del", "params":{"prefix":"test", "fields":["inc_test", "pck_test"],"nores":true, "noval":false}, 
                     "result":null},
@@ -34,6 +39,7 @@
     "set1-params":{ "prefix":"${prefix}", "nores":true,  "noval":true,  "fields":{"${set-key1}":"${set-val1}", "${set-key2}":"${set-val2}"}},
     "set2-params":{ "prefix":"${prefix}", "nores":false, "noval":true,  "fields":{"${set-key1}":"${set-val1}", "${set-key2}":"${set-val2}"}},
     "set3-params":{ "prefix":"${prefix}", "nores":false, "noval":false, "fields":{"${set-key1}":"${set-val1}", "${set-key2}":"${set-val2}"}},
+    "sett-params":{ "prefix":"test", "nores":false, "noval":false, "fields":{"${set-key1}":"${set-val1}", "${set-key2}":"${set-val2}"}},
     "inc1-params":{ "prefix":"test", "nores":true,  "noval":true,  "update":{"inc_test":{"val":1,"inc":1}}},
     "pck-params" :{ "prefix":"test", "nores":true,  "noval":true,  "update":{
       "pck_test":{ 
@@ -47,6 +53,7 @@
     "set1-result": { "status":"OK", "prefix":"${prefix}", "fields":{}},
     "set2-result": { "status":"OK", "prefix":"${prefix}", "fields":{"${set-key1}":"","${set-key2}":""}},
     "set3-result": { "status":"OK", "prefix":"${prefix}", "fields":{"${set-key1}":"${set-val1}","${set-key2}":"${set-val2}"}},
+    "sett-result": { "status":"OK", "prefix":"test", "fields":{"${set-key1}":"${set-val1}","${set-key2}":"${set-val2}"}},
     "inc1-result": { "status":"OK", "prefix":"test", "fields":{}},
     "pck-result": { "status":"OK", "prefix":"test", "fields":{}}
     
@@ -54,7 +61,7 @@
 
   "values":{
     "set-key1":"${keypref}-${I}-${C1}-${C2}-K1",
-    "set-val1":"${I}-${C1}-${C2}-V1",
+    "set-val1":"${valpref}-${I}-${C1}-${C2}-V1",
     "set-key2":"${I}-${C1}-${C2}-K2",
     "set-val2":"${I}-${C1}-${C2}-V2"
   }
