@@ -2,7 +2,8 @@
   "options":{
     /*Длина префикса ключа*/
     "keylen":5,
-    "vallen":260,
+    /*"vallen":32766,*/
+    "vallen":3000000,
     /*Длина префикса*/
     "preflen":5,
 
@@ -36,10 +37,10 @@
   },
 
   "params":{
-    "set1-params":{ "prefix":"${prefix}", "nores":true,  "noval":true,  "fields":{"${set-key1}":"${set-val1}", "${set-key2}":"${set-val2}"}},
+    "set1-params":{ "prefix":"${prefix}", "nores":true,  "noval":true,  "fields":{"${set-key1}":"${set-val1}"/*, "${set-key2}":"${set-val2}"*/}},
     "set2-params":{ "prefix":"${prefix}", "nores":false, "noval":true,  "fields":{"${set-key1}":"${set-val1}", "${set-key2}":"${set-val2}"}},
     "set3-params":{ "prefix":"${prefix}", "nores":false, "noval":false, "fields":{"${set-key1}":"${set-val1}", "${set-key2}":"${set-val2}"}},
-    "sett-params":{ "prefix":"test", "nores":false, "noval":false, "fields":{"${set-key1}":"${set-val1}", "${set-key2}":"${set-val2}"}},
+    "sett-params":{ "prefix":"test", "nores":false, "noval":false, "fields":{"${set-key1}":"${set-val1}"/*, "${set-key2}":"${set-val2}"*/}}, 
     "inc1-params":{ "prefix":"test", "nores":true,  "noval":true,  "update":{"inc_test":{"val":1,"inc":1}}},
     "pck-params" :{ "prefix":"test", "nores":true,  "noval":true,  "update":{
       "pck_test":{ 
@@ -61,7 +62,8 @@
 
   "values":{
     "set-key1":"${keypref}-${I}-${C1}-${C2}-K1",
-    "set-val1":"${valpref}-${I}-${C1}-${C2}-V1",
+    /*"set-val1":"${valpref}-${I}-${C1}-${C2}-V1",*/
+    "set-val1":"${valpref}",
     "set-key2":"${I}-${C1}-${C2}-K2",
     "set-val2":"${I}-${C1}-${C2}-V2"
   }

@@ -20,6 +20,7 @@ add_custom_target(
   VERBATIM
 )
 link_directories(${CMAKE_SOURCE_DIR}/facebook-rocksdb)
+include_directories(${CMAKE_SOURCE_DIR}/facebook-rocksdb)
 include_directories(${CMAKE_SOURCE_DIR}/facebook-rocksdb/include)
 
 include_directories(${CMAKE_SOURCE_DIR}/wfc_prefixdb/package)
