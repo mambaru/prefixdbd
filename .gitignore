@@ -7,8 +7,8 @@
 *.cmake
 */debug
 */release
-*/build
-build
+*/build*
+build*
 .tup
 btp/server/debug
 btp/server/release
