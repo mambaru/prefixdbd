@@ -15,6 +15,7 @@
   "inc1": [ "${del-query}", 1, "${inc1-query}", 10, "${get-query}", 1, "10 запросов inc , с предварительным удалением" ],
   "pck1": [ "${del-query}", 1, "${pck-query}", 10, "${get2-query}", 1, "10 запросов packed , с предварительным удалением" ],
   "inc2": [ "${inc1-query}", 100, "${get-query}", 1, "10 запросов inc, без удаления (проверка не работает)" ],
+  "inc3": [ "${inc1-query}", 1, "1 запрос inc, без удаления (проверка не работает)" ],
   "set1": [ "${set1-query}", 10, "${set1-query}", 10, "20 запросов set (nores=true, noval=true)" ],
   "set2": [ "${set2-query}", 10, "${set2-query}", 10, "20 запросов set (nores=false, noval=true)" ],
   "set3": [ "${set3-query}", 10, "${set3-query}", 10, "20 запросов set (nores=false, noval=false)" ],
