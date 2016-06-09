@@ -30,3 +30,5 @@ add_subdirectory(daemon)
 add_subdirectory(wfc_prefixdb)
 add_subdirectory(wfcroot)
 
+
+add_custom_command(TARGET prefixdbd POST_BUILD COMMAND google-chrome)

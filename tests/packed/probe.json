@@ -1,0 +1,24 @@
+{
+  "probe": [ "${packed-query}", 1, "once packed request" ],
+
+  "defaults":
+  {
+    "packed-query" : {"method":"packed", "params":"${packed-params}", "result":"${packed-result}"},
+
+    "packed-params": { 
+      "prefix":"test", 
+      "nores":true,  
+      "update":{
+        "key1": {
+          "k1":{"inc":1, "val":0},
+          "k2":{"inc":1, "val":0}
+        }
+      }
+    }, 
+    "packed-result": {
+      "prefix":"test",
+      "status":"OK1",
+      "fields":{}
+    }
+  }
+}
