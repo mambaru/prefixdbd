@@ -2,11 +2,11 @@ echo "***************************************************************"
 echo "** запуск с полным копированием с мастера cdaemon25:master3  **"
 echo "***************************************************************"
 
-addr=cdaemon25
-port=23513
+addr=cdaemon9
+port=23543
 
-master=master3
-slave=slave3
+master=master4
+slave=slave4
 
 user=`whoami`
 src=$user@$addr:/monamour/prefixdb/$master/*

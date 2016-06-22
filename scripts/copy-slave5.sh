@@ -5,8 +5,8 @@ echo "***************************************************************"
 addr=ldb2
 port=23553
 
-master=master3
-slave=slave3
+master=master5
+slave=slave5
 
 user=`whoami`
 src=$user@$addr:/monamour/prefixdb/$master/*
