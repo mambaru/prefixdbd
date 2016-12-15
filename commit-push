@@ -1,0 +1,6 @@
+#!/bin/bash
+git submodule foreach --recursive eval "git commit -am $1 || true"
+git submodule foreach --recursive git push
+git commit -am $1 
+git push
+
