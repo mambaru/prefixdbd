@@ -13,3 +13,6 @@
 [submodule "facebook-rocksdb"]
 	path = facebook-rocksdb
 	url = git@github.lan:cpp/facebook-rocksdb.git
+[submodule "configurations"]
+	path = configurations
+	url = git@github.lan:cpp/configurations.git
