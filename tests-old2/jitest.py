@@ -1,1 +1,0 @@
-../wfcroot/wfc/jitest/jitest.py
