@@ -27,7 +27,7 @@ RocksDB - это активно развивающийся проект facebook
 ```bash
 git clone git@github.lan:cpp/prefixdbd.git
 cd prefixdbd
-git checkout devel-0.6
+git checkout release-0.6
 git submodule update --init --recursive 
 ```
 
