@@ -17,7 +17,7 @@ include_directories(${CMAKE_SOURCE_DIR}/luajit-2.0/src)
 # facebook-rocksdb
 add_custom_target( 
   facebook-rocksdb
-  COMMAND make shared_lib
+  COMMAND make USE_RTTI=1 shared_lib
   WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}/facebook-rocksdb
   VERBATIM
 )
