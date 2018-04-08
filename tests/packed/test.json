@@ -57,15 +57,17 @@
     "set3-result": { "status":"OK", "prefix":"${prefix}", "fields":{"${set-key1}":"${set-val1}","${set-key2}":"${set-val2}"}},
     "sett-result": { "status":"OK", "prefix":"test", "fields":{"${set-key1}":"${set-val1}","${set-key2}":"${set-val2}"}},
     "inc1-result": { "status":"OK", "prefix":"test", "fields":{}},
-    "pck-result": { "status":"OK", "prefix":"test", "fields":{}}
+    "pck-result":  { "status":"OK", "prefix":"test", "fields":{}}
     
   },
 
   "values":{
     "set-key1":"${keypref}-${I}-${C1}-${C2}-K1",
-    /*"set-val1":"${valpref}-${I}-${C1}-${C2}-V1",*/
+    "set-val1":"${valpref}-${I}-${C1}-${C2}-V1",
     "set-val1":"${valpref}",
     "set-key2":"${I}-${C1}-${C2}-K2",
-    "set-val2":"${I}-${C1}-${C2}-V2"
+    "set-val2":"${I}-${C1}-${C2}-V2",
+    "get-key1":"${keypref}-${I}-${C1}-${C2}-K1",
+    "get-val2":"${I}-${C1}-${C2}-V2"
   }
 }
