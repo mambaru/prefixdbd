@@ -7,9 +7,6 @@
 [submodule "wfc_prefixdb"]
 	path = wfc_prefixdb
 	url = git@github.lan:cpp/wfc_prefixdb.git
-[submodule "luajit-2.0"]
-	path = luajit-2.0
-	url = git@github.lan:cpp/luajit-2.0.git
 [submodule "facebook-rocksdb"]
 	path = facebook-rocksdb
 	url = git@github.lan:cpp/facebook-rocksdb.git
