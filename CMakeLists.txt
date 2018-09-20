@@ -37,10 +37,10 @@ add_custom_target(
 link_directories(${CMAKE_SOURCE_DIR}/facebook-rocksdb)
 include_directories(${CMAKE_SOURCE_DIR}/facebook-rocksdb)
 include_directories(${CMAKE_SOURCE_DIR}/facebook-rocksdb/include)
-
 include_directories(${CMAKE_SOURCE_DIR}/wfc_prefixdb/package)
 
-
-add_subdirectory(daemon)
 add_subdirectory(wfc_prefixdb)
+add_subdirectory(daemon)
 add_subdirectory(wfcroot)
+
+
