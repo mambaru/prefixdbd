@@ -10,7 +10,7 @@ SET(
   wfc_prefixdb
 )
 
-target_link_libraries(prefixdbd ${prefixdbd_lib_list}  )
+target_link_libraries(prefixdbd ${prefixdbd_lib_list} rt)
 
 add_dependencies(prefixdbd ${prefixdbd_lib_list} )
 
