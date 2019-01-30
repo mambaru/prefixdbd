@@ -32,31 +32,31 @@
     "compiler":"g++",
     
     "Release":{
-      "static":true,
+      "static":false,
       "shared":true,
       
       "production":true,
-      "loads":true,
-      "stress":true,
-      "devel":true
+      "loads":false,
+      "stress":false,
+      "devel":false
     },
     "RelWithDebInfo":{
-      "static":true,
+      "static":false,
       "shared":true,
       
-      "production":true,
-      "loads":true,
-      "stress":true,
-      "devel":true
+      "production":false,
+      "loads":false,
+      "stress":false,
+      "devel":false
     },
     "Debug":{
-      "static":true,
+      "static":false,
       "shared":true,
       
-      "production":true,
-      "loads":true,
-      "stress":true,
-      "devel":true
+      "production":false,
+      "loads":false,
+      "stress":false,
+      "devel":false
     }
   }
 }
