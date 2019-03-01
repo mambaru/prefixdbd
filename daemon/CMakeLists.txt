@@ -1,18 +1,10 @@
 include(BuildInfo)
 
-include_directories(..)
-
 add_executable(prefixdbd prefixdbd.cpp )
 
-SET(
-  prefixdbd_lib_list
-  wfcroot
-  wfc_prefixdb
-)
+target_link_libraries(prefixdbd wfc_prefixdb wfcroot rt)
 
-target_link_libraries(prefixdbd ${prefixdbd_lib_list} rt)
-
-add_dependencies(prefixdbd ${prefixdbd_lib_list} )
+add_dependencies(prefixdbd wfc_prefixdb wfcroot)
 
 build_info(prefixdbd prefixdbd)
 

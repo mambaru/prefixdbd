@@ -1,9 +1,11 @@
 {
   /* Open source проект (публикация на github.com) */
-  "public":false,
-  "tag":"0.7.1",
+  "public":true,
+  
+  "tag":"0.8.0",
+  
   /* Текущий релиз бранч  */
-  "release":"release-0.7",
+  "release":"release-0.8",
   
   "build_threads": 4,
 
@@ -32,8 +34,8 @@
     "compiler":"g++",
     
     "Release":{
-      "static":false,
-      "shared":true,
+      "static":true,
+      "shared":false,
       
       "production":true,
       "loads":false,
@@ -42,7 +44,7 @@
     },
     "RelWithDebInfo":{
       "static":false,
-      "shared":true,
+      "shared":false,
       
       "production":false,
       "loads":false,
@@ -51,7 +53,7 @@
     },
     "Debug":{
       "static":false,
-      "shared":true,
+      "shared":false,
       
       "production":false,
       "loads":false,
