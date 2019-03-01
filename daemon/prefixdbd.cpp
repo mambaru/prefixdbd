@@ -2,13 +2,13 @@
 
 #include <wfc/wfc.hpp>
 #include <wfcroot/wfcroot.hpp>
-#include <prefixdb_package.hpp>
+#include <package/prefixdb_package.hpp>
 
 int main(int argc, char* argv[])
 {
-  return ::wfc::wfc<prefixdbd_build_info>(::wfc::wfcroot(
+  return wfc::wfc<prefixdbd_build_info>(wfc::wfcroot(
     {
-      std::make_shared< ::wamba::prefixdb::prefixdb_package >()
+      std::make_shared<wamba::prefixdb::prefixdb_package>()
     }
   )).run(argc, argv,
     "PrefixDB демон на базе платформы WFC и модуля wfc_prefixdb, предоставляет \n"

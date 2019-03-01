@@ -4,7 +4,9 @@ project(prefixdbd)
 
 include(cmake/ci.cmake)
 include(external/cmake-ci/cmake/rocksdb.cmake)
-wfcroot(wfc_prefixdb)
+
 get_rocksdb()
+wfcroot(wfc_prefixdb)
+
 
 add_subdirectory(daemon)
