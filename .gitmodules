@@ -13,3 +13,12 @@
 [submodule "external/cmake-ci"]
 	path = external/cmake-ci
 	url = git@github.lan:cpp/cmake-ci.git
+[submodule "external/wfcroot"]
+	path = external/wfcroot
+	url = git@github.lan:cpp/wfcroot.git
+[submodule "external/rocksdb"]
+	path = external/rocksdb
+	url = git@github.lan:cpp/rocksdb.git
+[submodule "external/wfc_prefixdb"]
+	path = external/wfc_prefixdb
+	url = git@github.lan:cpp/wfc_prefixdb.git
