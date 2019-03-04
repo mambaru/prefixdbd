@@ -13,13 +13,6 @@ install:
   - sudo apt-get install -y libc++-dev libboost-dev 
   - sudo apt-get install -y libboost-system-dev libboost-program-options-dev 
   - sudo apt-get install -y libboost-filesystem-dev libboost-date-time-dev libboost-regex-dev valgrind doxygen
-  # for rocksdb
-  - sudo apt-get install -y libgflags-dev
-  - sudo apt-get install -y libsnappy-dev
-  - sudo apt-get install -y zlib1g-dev
-  - sudo apt-get install -y libbz2-dev
-  - sudo apt-get install -y liblz4-dev
-  - sudo apt-get install -y libzstd-dev
 
 compiler:
   - g++
@@ -35,7 +28,7 @@ script:
   - git submodule update --init --force
   - mkdir -p build 
   - pushd build 
-  -   cmake .. -DCMAKE_CXX_COMPILER=$TRAVIS_COMPILER -DCMAKE_CXX_STANDARD=11 -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DPARANOID_WARNING=ON
+  -   cmake .. -DCMAKE_CXX_COMPILER=$TRAVIS_COMPILER -DCMAKE_CXX_STANDARD=11 -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DPARANOID_WARNING=ON -DWITHOUT_COMPRESSION_LIBRARIES=ON
   -   cmake --build .
   -   ctest --output-on-failure
   -   make clean
