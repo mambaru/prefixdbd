@@ -2,7 +2,7 @@ include(BuildInfo)
 
 add_executable(prefixdbd prefixdbd.cpp )
 
-target_link_libraries(prefixdbd wfc_prefixdb wfcroot rt)
+target_link_libraries(prefixdbd wfc_prefixdb wfcroot)
 
 add_dependencies(prefixdbd wfc_prefixdb wfcroot)
 
