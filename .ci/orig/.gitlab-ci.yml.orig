@@ -29,6 +29,11 @@ before_script:
 after_script:
   - rm -f /tmp/migrate-${CI_JOB_ID}.sh
   - rm -f /tmp/export-${CI_JOB_ID}.sh
+  - if [[ "$(python3 ./.ci/wamba-ci.py option gc ON)" == "ON" ]]; then
+  -   echo "Полностью все удаляем после сборки из-за жадных админов"
+  -   rm -rf $PWD/*
+  -   echo "Если что-то сломалось и нужно посмотреть это на месте, то установите gc=true в wamba-ci.json в корне проекта"
+  - fi
 
 stages:
   - build
@@ -41,14 +46,15 @@ stages:
 night-build:
   stage: build
   script:
-    - git pull origin devel
-    - git pull origin wip-devel
+    - git pull --ff-only origin devel
+    - git pull --ff-only origin wip-devel
+    - git submodule update
     - rm -f update.sh
     - wget http://github.lan/cpp/cmake-ci/raw/master/update.sh
-    - bash update.sh "Night build&#58; "
+    - bash update.sh "Night Build "
     - rm -f upgrade.sh
     - wget http://github.lan/cpp/cmake-ci/raw/master/upgrade.sh
-    - bash upgrade.sh "auto" "master" "Night build&#58; "
+    - bash upgrade.sh "auto" "master" "Night Build "
     - git push ${PROJECT_SSH} ${CI_COMMIT_REF_NAME}:${CI_COMMIT_REF_NAME}
     - git push ${PROJECT_SSH} ${CI_COMMIT_REF_NAME}:wip-devel
   only:

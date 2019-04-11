@@ -1,9 +1,10 @@
 #!/bin/bash
+# дефолтный скрипт для запуска демона копируется с переименованием при деплое 
 
 script_path=$(readlink -e $0)
 script_dir=$(dirname $script_path)
 project_name=$(basename $script_dir)
-project_path=$script_dir/$project_name
+project_path="$script_dir/${project_name}d"
 
 if [ ! -f "$project_path" ]; then
   echo "Имя запускаемого бинарника должно совпадать с именем директории"
@@ -11,10 +12,10 @@ if [ ! -f "$project_path" ]; then
 fi
 
 if [ -z $1 ]; then
-  if [[ "script_dir" == "$PWD" ]]; then
+  if [[ "$script_dir" == "$PWD" ]]; then
     conf="${project_name}.conf"
   else
-    conf="${project_path}.conf"
+    conf="$script_dir/${project_name}.conf"
   fi
   
   if [ ! -f $conf ]; then
