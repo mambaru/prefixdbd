@@ -9,3 +9,8 @@ get_rocksdb()
 wfcroot(wfc_prefixdb)
 
 add_subdirectory(daemon)
+
+if ( BUILD_TESTING )
+  enable_testing()
+  add_subdirectory(tests)
+endif()
