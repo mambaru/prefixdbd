@@ -1,24 +1,3 @@
-[submodule "faslib"]
-	path = faslib
-	url = git@github.lan:cpp/faslib.git
-[submodule "wfcroot"]
-	path = wfcroot
-	url = git@github.lan:cpp/wfcroot.git
-[submodule "wfc_prefixdb"]
-	path = wfc_prefixdb
-	url = git@github.lan:cpp/wfc_prefixdb.git
-[submodule "facebook-rocksdb"]
-	path = facebook-rocksdb
-	url = git@github.lan:cpp/facebook-rocksdb.git
 [submodule "external/cmake-ci"]
 	path = external/cmake-ci
-	url = git@github.lan:cpp/cmake-ci.git
-[submodule "external/wfcroot"]
-	path = external/wfcroot
-	url = git@github.lan:cpp/wfcroot.git
-[submodule "external/rocksdb"]
-	path = external/rocksdb
-	url = git@github.lan:cpp/rocksdb.git
-[submodule "external/wfc_prefixdb"]
-	path = external/wfc_prefixdb
-	url = git@github.lan:cpp/wfc_prefixdb.git
+	url = https://github.com/mambaru/cmake-ci.git
