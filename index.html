@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Названиепроекта: PrefixDB - демон префиксного key-value хранилища на базе RocksDB</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="customdoxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Названиепроекта
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.15 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Поиск');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">PrefixDB - демон префиксного key-value хранилища на базе RocksDB </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p class="">Демон предоставляет jsonrpc-интерфейс к набору key-value хранилищ определямых префиксом. По сути префикс - это имя каталога файловой системы, где распологаются файлы хранилища для этого префикса. Он указывается в каждом запросе. Более подробное описание</p>
+<p class="">Непосредственно демон реализован на фреймворке WFC-0.8.1 и, соответсвенно, доступны все возможности этого фреймворка, включая репликацию на сетевом уровне, как в демоне LevelDB. Но RocksDB предоставляет более надежные механизмы репликации на уровне файловой системы.</p>
+<p class="">RocksDB - это активно развивающийся проект facebook, изначально форк проекта LevelDB от google, с существенными дополнениями. По мимо встроеных механизмов бэкапов (в том числе инкрементальных), и множества дополнительных настроек, RocksDB предоставляет механизм мерджинга, который позволяет полностью избавиться от блокировок ключей для модифицирующих операций, требующих предварительного получения значения (например инкрементальных). Это потребовало существенных изменний в логике работы демона, поэтому некоторые операции, аналогичные LevelDB, работают иначе. Внимательнее читайте</p>
+<h1>Исходный код и компиляция</h1>
+<div class="fragment"><div class="line">cd prefixdbd</div><div class="line">make static</div></div><!-- fragment --><p class="">или</p>
+<div class="fragment"><div class="line">make shared</div></div><!-- fragment --><h3>Installing gcc 4.8 and Linuxbrew on CentOS 6</h3>
+<p class=""><a href="https://gist.github.com/stephenturner/e3bc5cfacc2dc67eca8b">https://gist.github.com/stephenturner/e3bc5cfacc2dc67eca8b</a></p>
+<div class="fragment"><div class="line">scl enable devtoolset-2 bash</div><div class="line">export PORTABLE=1</div><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">cmake ..</div><div class="line">make</div><div class="line">cd ./Release/</div></div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.15
+</small></address>
+</body>
+</html>
