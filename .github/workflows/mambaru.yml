@@ -30,10 +30,18 @@ jobs:
 
       - name: Сборка
         run: |
-          make coverage-report
-          
+          echo make coverage-report
+
+      - name: Отчет о покрытии
+        run: |
+          pushd build
+             export CODECOV_TOKEN=${{ secrets.CODECOV_TOKEN }}
+             bash <(curl -s https://codecov.io/bash)
+          popd
+
       - name: Коммит субмодулей
         run: |
+          git checkout -b mamba-ready
           echo "Субмодули подключаються при первой сборке (фиксируем их)"
           git config --global user.email "migashko@gmail.com"
           git config --global user.name "Vladimir Migashko"
@@ -42,9 +50,3 @@ jobs:
             git push https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:mamba-ready
           fi
 
-      - name: Отчет о покрытии
-        run: |
-          pushd build
-             export CODECOV_TOKEN=${{ secrets.CODECOV_TOKEN }}
-             bash <(curl -s https://codecov.io/bash)
-          popd
