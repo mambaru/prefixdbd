@@ -38,8 +38,8 @@ jobs:
           git config --global user.email "migashko@gmail.com"
           git config --global user.name "Vladimir Migashko"
           if git commit -am "[subm] build submodule autocommit"; then
-            echo git push https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git mambaru:mamba-ready
-            git push https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git mambaru:mamba-ready
+            echo git push https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:mamba-ready
+            git push https://${{ secrets.ACCESS_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git HEAD:mamba-ready
           fi
 
       - name: Отчет о покрытии
