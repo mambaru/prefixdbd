@@ -30,11 +30,14 @@ jobs:
 
       - name: Сборка
         run: |
+          mkdir -p build
+          pushd build
+            cmake ..
+          popd
           echo make coverage-report
 
       - name: Отчет о покрытии
         run: |
-          mkdir -p build
           pushd build
              export CODECOV_TOKEN=${{ secrets.CODECOV_TOKEN }}
              bash <(curl -s https://codecov.io/bash)
