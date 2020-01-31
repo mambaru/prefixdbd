@@ -36,8 +36,8 @@ jobs:
         popd
 
     - name: make docs
-        run: |
-          make doc
+      run: |
+        make doc
 
     - name: push docs
       run: |
