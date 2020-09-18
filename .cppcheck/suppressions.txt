@@ -1,7 +1,10 @@
-# Список подавлений для cppcheck относительно корня проекта. Примеры
+# Список подавлений ложных предупреждений cppcheck относительно корня проекта.
+
 # Для конкретной строки:
-# missingInclude:./daemon/demod.cpp:1
+# unusedFunction:./daemon/demod.cpp:1
+
 # Для всего файла:
-# missingInclude:./daemon/demod.cpp
+# unusedFunction:./daemon/demod.cpp
+
 # Для всего проекта:
-# missingInclude:
+# unusedFunction:
