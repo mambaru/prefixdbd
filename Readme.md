@@ -1,45 +1,19 @@
+
+[![tag](https://img.shields.io/github/v/tag/mambaru/prefixdbd.svg?sort=semver)](https://github.com/mambaru/prefixdbd/tree/master)
+[![Build Status](https://github.com/mambaru/prefixdbd/workflows/C++%20CI/badge.svg?branch=master)](https://github.com/mambaru/prefixdbd/tree/master)
+[![Build Status](https://github.com/mambaru/prefixdbd/workflows/C++%20CI/badge.svg?branch=mambaru)](https://github.com/mambaru/prefixdbd/tree/mambaru)
+[![Build Status](https://travis-ci.com/mambaru/prefixdbd.svg?branch=master)](https://travis-ci.com/mambaru/prefixdbd)
+[![Build Status](https://travis-ci.com/mambaru/prefixdbd.svg?branch=mambaru)](https://travis-ci.com/mambaru/prefixdbd)
+[![codecov](https://codecov.io/gh/mambaru/prefixdbd/branch/master/graph/badge.svg)](https://codecov.io/gh/mambaru/prefixdbd)
+
 PrefixDB - демон префиксного key-value хранилища на базе RocksDB
 =========
+                                          
 
-Демон предоставляет jsonrpc-интерфейс к набору key-value хранилищ определямых префиксом. 
-По сути префикс - это имя каталога файловой системы, где распологаются файлы 
-хранилища для этого префикса. Он указывается в каждом запросе. Более подробное описание 
+На github.com
+=========
 
-Непосредственно демон реализован на фреймворке WFC-0.8.1 и, соответсвенно, доступны все возможности этого фреймворка, 
-включая репликацию на сетевом уровне, как в демоне LevelDB. Но RocksDB предоставляет более
-надежные механизмы репликации на уровне файловой системы. 
+* Репозитарий на [github.com](https://github.com/mambaru/prefixdbd)
+* Документация [doxygen](https://mambaru.github.io/prefixdbd/index.html)
+* Отчет [coverage](https://mambaru.github.io/prefixdbd/cov-report/index.html)
 
-RocksDB - это активно развивающийся проект facebook, изначально форк проекта LevelDB от google,
-с существенными дополнениями. По мимо встроеных механизмов бэкапов (в том числе инкрементальных),
-и множества дополнительных настроек, RocksDB предоставляет механизм мерджинга, который позволяет
-полностью избавиться от блокировок ключей для модифицирующих операций, требующих предварительного
-получения значения (например инкрементальных). Это потребовало существенных изменний в логике работы 
-демона, поэтому некоторые операции, аналогичные LevelDB, работают иначе. Внимательнее читайте 
-
-# Исходный код и компиляция
-
-```bash
-cd prefixdbd
-make static
-```
-
-или
-
-```bash
-make shared
-```
-
-
-### Installing gcc 4.8 and Linuxbrew on CentOS 6
-
-https://gist.github.com/stephenturner/e3bc5cfacc2dc67eca8b
-
-```bash
-scl enable devtoolset-2 bash
-export PORTABLE=1
-mkdir build
-cd build
-cmake ..
-make
-cd ./Release/
-```
