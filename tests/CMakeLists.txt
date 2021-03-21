@@ -14,42 +14,42 @@ if ( EXISTS ${CMAKE_SOURCE_DIR}/examples/example01-slave.conf )
   )
 endif()
 
-if ( EXISTS ${CMAKE_SOURCE_DIR}/configurations/mastern5/prefixdb.conf )
+if ( EXISTS ${CMAKE_SOURCE_DIR}/configurations/prefixdb.conf )
   add_test(
-    NAME mastern5
-    COMMAND prefixdbd --check-config=configurations/mastern5/prefixdb.conf
+    NAME prefixdb.conf
+    COMMAND prefixdbd --check-config=configurations/prefixdb.conf
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   )
 endif()
 
-if ( EXISTS ${CMAKE_SOURCE_DIR}/configurations/mastern5/prefixdb-load.conf )
+if ( EXISTS ${CMAKE_SOURCE_DIR}/configurations/master.conf )
   add_test(
-    NAME mastern5-load.conf
-    COMMAND prefixdbd --check-config=configurations/mastern5/prefixdb-load.conf
+    NAME master.conf
+    COMMAND prefixdbd --check-config=configurations/master.conf
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   )
 endif()
 
-if ( EXISTS ${CMAKE_SOURCE_DIR}/configurations/mastern5/second-master.conf )
+if ( EXISTS ${CMAKE_SOURCE_DIR}/configurations/slave.conf )
   add_test(
-    NAME mastern5-second.conf
-    COMMAND prefixdbd --check-config=configurations/mastern5/second-master.conf
+    NAME slave.conf
+    COMMAND prefixdbd --check-config=configurations/slave.conf
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   )
 endif()
 
-if ( EXISTS ${CMAKE_SOURCE_DIR}/configurations/mastern7/prefixdb.conf )
+if ( EXISTS ${CMAKE_SOURCE_DIR}/configurations/slave5/slave.conf )
   add_test(
-    NAME mastern7
-    COMMAND prefixdbd --check-config=configurations/mastern7/prefixdb.conf
+    NAME slave5/slave.conf
+    COMMAND prefixdbd --check-config=configurations/slave5/slave.conf
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   )
 endif()
 
-if ( EXISTS ${CMAKE_SOURCE_DIR}/configurations/mastern7/prefixdb-load.conf )
+if ( EXISTS ${CMAKE_SOURCE_DIR}/configurations/master-slave.conf )
   add_test(
-    NAME mastern7-load
-    COMMAND prefixdbd --check-config=configurations/mastern7/prefixdb-load.conf
+    NAME master-slave.conf
+    COMMAND prefixdbd --check-config=configurations/master-slave.conf
     WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
   )
 endif()
