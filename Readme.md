@@ -1,5 +1,5 @@
-
 [![tag](https://img.shields.io/github/v/tag/mambaru/prefixdbd.svg?sort=semver)](https://github.com/mambaru/prefixdbd/tree/master)
+
 [![Build Status](https://github.com/mambaru/prefixdbd/workflows/C++%20CI/badge.svg?branch=master)](https://github.com/mambaru/prefixdbd/tree/master)
 [![Build Status](https://github.com/mambaru/prefixdbd/workflows/C++%20CI/badge.svg?branch=mambaru)](https://github.com/mambaru/prefixdbd/tree/mambaru)
 [![Build Status](https://travis-ci.com/mambaru/prefixdbd.svg?branch=master)](https://travis-ci.com/mambaru/prefixdbd)
