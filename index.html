@@ -1,11 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.15"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Названиепроекта: PrefixDB - демон префиксного key-value хранилища на базе RocksDB</title>
+<title>Названиепроекта: Титульная страница</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -27,7 +27,7 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Создано системой Doxygen 1.8.15 -->
+<!-- Создано системой Doxygen 1.8.17 -->
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
@@ -40,23 +40,27 @@ $(function() {
 </div><!-- top -->
 <div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">PrefixDB - демон префиксного key-value хранилища на базе RocksDB </div>  </div>
+<div class="title">Названиепроекта Документация</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p class="">Демон предоставляет jsonrpc-интерфейс к набору key-value хранилищ определямых префиксом. По сути префикс - это имя каталога файловой системы, где распологаются файлы хранилища для этого префикса. Он указывается в каждом запросе. Более подробное описание</p>
-<p class="">Непосредственно демон реализован на фреймворке WFC-0.8.1 и, соответсвенно, доступны все возможности этого фреймворка, включая репликацию на сетевом уровне, как в демоне LevelDB. Но RocksDB предоставляет более надежные механизмы репликации на уровне файловой системы.</p>
-<p class="">RocksDB - это активно развивающийся проект facebook, изначально форк проекта LevelDB от google, с существенными дополнениями. По мимо встроеных механизмов бэкапов (в том числе инкрементальных), и множества дополнительных настроек, RocksDB предоставляет механизм мерджинга, который позволяет полностью избавиться от блокировок ключей для модифицирующих операций, требующих предварительного получения значения (например инкрементальных). Это потребовало существенных изменний в логике работы демона, поэтому некоторые операции, аналогичные LevelDB, работают иначе. Внимательнее читайте</p>
-<h1>Исходный код и компиляция</h1>
-<div class="fragment"><div class="line">cd prefixdbd</div><div class="line">make static</div></div><!-- fragment --><p class="">или</p>
-<div class="fragment"><div class="line">make shared</div></div><!-- fragment --><h3>Installing gcc 4.8 and Linuxbrew on CentOS 6</h3>
-<p class=""><a href="https://gist.github.com/stephenturner/e3bc5cfacc2dc67eca8b">https://gist.github.com/stephenturner/e3bc5cfacc2dc67eca8b</a></p>
-<div class="fragment"><div class="line">scl enable devtoolset-2 bash</div><div class="line">export PORTABLE=1</div><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">cmake ..</div><div class="line">make</div><div class="line">cd ./Release/</div></div><!-- fragment --> </div></div><!-- PageDoc -->
+<div class="textblock"><p><a href="https://github.com/mambaru/prefixdbd/tree/master"><object type="image/svg+xml" data="https://img.shields.io/github/v/tag/mambaru/prefixdbd.svg?sort=semver" style="pointer-events: none;">tag</object></a></p>
+<p><a href="https://github.com/mambaru/prefixdbd/tree/master"><object type="image/svg+xml" data="https://github.com/mambaru/prefixdbd/workflows/C++%20CI/badge.svg?branch=master" style="pointer-events: none;">Build Status</object></a> <a href="https://github.com/mambaru/prefixdbd/tree/mambaru"><object type="image/svg+xml" data="https://github.com/mambaru/prefixdbd/workflows/C++%20CI/badge.svg?branch=mambaru" style="pointer-events: none;">Build Status</object></a> <a href="https://travis-ci.com/mambaru/prefixdbd"><object type="image/svg+xml" data="https://travis-ci.com/mambaru/prefixdbd.svg?branch=master" style="pointer-events: none;">Build Status</object></a> <a href="https://travis-ci.com/mambaru/prefixdbd"><object type="image/svg+xml" data="https://travis-ci.com/mambaru/prefixdbd.svg?branch=mambaru" style="pointer-events: none;">Build Status</object></a> <a href="https://codecov.io/gh/mambaru/prefixdbd"><object type="image/svg+xml" data="https://codecov.io/gh/mambaru/prefixdbd/branch/master/graph/badge.svg" style="pointer-events: none;">codecov</object></a></p>
+<h1><a class="anchor" id="autotoc_md0"></a>
+PrefixDB - демон префиксного key-value хранилища на базе RocksDB</h1>
+<h1><a class="anchor" id="autotoc_md1"></a>
+На github.com</h1>
+<ul>
+<li>Репозитарий на <a href="https://github.com/mambaru/prefixdbd">github.com</a></li>
+<li>Документация <a href="https://mambaru.github.io/prefixdbd/index.html">doxygen</a></li>
+<li>Отчет <a href="https://mambaru.github.io/prefixdbd/cov-report/index.html">coverage</a> </li>
+</ul>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Создано системой &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.15
+</a> 1.8.17
 </small></address>
 </body>
 </html>
