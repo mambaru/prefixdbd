@@ -8,6 +8,7 @@
 [![pipeline status](https://gitlab.mamba.ru/cpp/prefixdbd/badges/devel/pipeline.svg)](http://github.lan/cpp/prefixdbd/commits/devel)
 [![pipeline status](https://gitlab.mamba.ru/cpp/prefixdbd/badges/wip-devel/pipeline.svg)](http://github.lan/cpp/prefixdbd/commits/wip-devel)
 [![Coverage Report](https://gitlab.mamba.ru/cpp/prefixdbd/badges/pre-release/coverage.svg)](http://github.lan/cpp/prefixdbd/commits/master)
+[![Coverage Report](https://gitlab.mamba.ru/cpp/wfc_prefixdb/badges/pre-release/coverage.svg)](http://github.lan/cpp/wfc_prefixdb/commits/master)
 
 # Сборка на repobuild3
 
