@@ -4,8 +4,8 @@ project(prefixdbd)
 
 include(cmake/ci.cmake)
 
-wci_getlib(NAME wfcroot SUPERMODULE)
-wci_getlib(NAME wfc_prefixdb)
+wci_submodule(NAME wfcroot SUPERMODULE)
+wci_submodule(NAME wfc_prefixdb)
 
 add_subdirectory(daemon)
 
