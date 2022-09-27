@@ -1,19 +1,28 @@
-[![tag](https://img.shields.io/github/v/tag/mambaru/prefixdbd.svg?sort=semver)](https://github.com/mambaru/prefixdbd/tree/master)
-
-[![Build Status](https://github.com/mambaru/prefixdbd/workflows/C++%20CI/badge.svg?branch=master)](https://github.com/mambaru/prefixdbd/tree/master)
-[![Build Status](https://github.com/mambaru/prefixdbd/workflows/C++%20CI/badge.svg?branch=mambaru)](https://github.com/mambaru/prefixdbd/tree/mambaru)
-[![Build Status](https://travis-ci.com/mambaru/prefixdbd.svg?branch=master)](https://travis-ci.com/mambaru/prefixdbd)
-[![Build Status](https://travis-ci.com/mambaru/prefixdbd.svg?branch=mambaru)](https://travis-ci.com/mambaru/prefixdbd)
-[![codecov](https://codecov.io/gh/mambaru/prefixdbd/branch/master/graph/badge.svg)](https://codecov.io/gh/mambaru/prefixdbd)
-
-PrefixDB - демон префиксного key-value хранилища на базе RocksDB
-=========
-                                          
-
-На github.com
+PrefixDB - Префиксное key-value хранилище на базе RocksDB с JSON-RPC интерфейсом
 =========
 
-* Репозитарий на [github.com](https://github.com/mambaru/prefixdbd)
-* Документация [doxygen](https://mambaru.github.io/prefixdbd/index.html)
-* Отчет [coverage](https://mambaru.github.io/prefixdbd/cov-report/index.html)
+PrefixDB управляет несколькими key-value хранилищами которые определяются префиксами.
+По сути префикс - это имя каталога файловой системы, где располагаются файлы 
+хранилища для этого префикса. Префикс указывается в каждом запросе. Хранилища префикса 
+создаются автоматически при любом запросе на запись. Настройки для всех префиксов едины и
+задаются в конфигурации. При необходимости индивидуальных настроек для префикса его можно 
+вынести в другой PrefixDB с нужными настройками. Т.к. каждый префикс располагается в отдельном 
+подкаталоге, то это позволяет легко его переместить на другой сервер при необходимости.
 
+RocksDB - это активно развивающийся проект facebook, изначально форк проекта LevelDB от google,
+с существенными дополнениями и представляет собой С++ библиотеку. PrefixDB это демон, который 
+предоставляет JSON-RPC интерфейс по TCP/UDP протоколам. Кроме того предоставляет инструменты для 
+управления потоком запросов, настройки очередей и потоков для адаптации к различным профилям 
+нагрузок, а также может обеспечивать репликацию и создание резервных копий.
+
+* [Введение](docs-md/Readme.md)
+* [JSON-API](docs-md/api.md)
+* [Сборка](docs-md/build.md)
+* [Деплой](docs-md/deploy.md)
+* [Запуск/Перезапуск](docs-md/restart.md)
+* [Конфигурация](docs-md/conf.md)
+* [Репликация](docs-md/replication.md)
+* [Переезд без даунтайма](docs-md/migration.md)
+* [Компэкшн](docs-md/compact.md)
+* [Бэкапы](docs-md/backup.md)
+* [Востановление](docs-md/restore.md)
