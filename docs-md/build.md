@@ -1,6 +1,6 @@
 # Статус сборки 
 
-Сборка мастера осуществляется автоматическиa, поэтому сразу переходим на [деплой](docs-md/deploy.md). Текущий статус сборки:
+Сборка мастера осуществляется автоматическиa, поэтому сразу переходим на [деплой](deploy.md). Текущий статус сборки:
 
 [![tag](https://img.shields.io/github/v/tag/mambaru/prefixdbd.svg?sort=semver)](https://github.com/mambaru/prefixdbd/tree/master)
 [![pipeline status](https://gitlab.mamba.ru/cpp/prefixdbd/badges/master/pipeline.svg)](http://github.lan/cpp/prefixdbd/commits/master)
@@ -10,18 +10,28 @@
 [![Coverage Report](https://gitlab.mamba.ru/cpp/prefixdbd/badges/pre-release/coverage.svg)](http://github.lan/cpp/prefixdbd/commits/master)
 [![Coverage Report](https://gitlab.mamba.ru/cpp/wfc_prefixdb/badges/pre-release/coverage.svg)](http://github.lan/cpp/wfc_prefixdb/commits/master)
 
-# Сборка на repobuild3
+# Сборка на repobuild3 и repobuild4
 
-Здесь уже все установлено 
+Здесь уже все установлено (по умолчанию все в статику собирается)
 
 ```bash
-BOOST_ROOT=/usr/monamour/boost/ ROCKSDB_ROOT=/usr/monamour/rocksdb/ make static ARGS=-j4
+BOOST_ROOT=/usr/monamour/boost/ ROCKSDB_ROOT=/usr/monamour/rocksdb/ make release ARGS=-j4
 ```
+
+Бинарь в `./build/bin/prefixdbd`
 
 # Сборка на другой машине 
 
+Долгая сборка с подгрузкой и компиляцией boost и rocksdb
+
+```bash
+make release
+```
+
+# Собока RocksDB (только если автоматическая не сработала или не устраивает)
+
 Зависимости для PrefixDB
-* boost-1.71 скорее всего в репах еще нет, нужно установить в ручную
+* boost-1.76 скорее всего в репах еще нет, нужно установить в ручную
 
 Зависимости для RocksDB и PrefixDB
 * Install gflags. First, try: sudo apt-get install libgflags-dev
@@ -46,7 +56,3 @@ sudo cp ./db/*.h /usr/monamour/rocksdb/db
 
 https://gitlab.mamba.ru/cpp/rocksdb/-/blob/master/INSTALL.md
 
-Сборка PrefixDB:
-```bash
-BOOST_ROOT=/path/to/boost/ ROCKSDB_ROOT=/path/to/rocksdb/ make static ARGS=-j4
-```
