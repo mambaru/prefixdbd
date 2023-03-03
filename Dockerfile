@@ -1,7 +1,7 @@
 FROM debian
-RUN apt update; apt install  -y build-essential gcc cmake wget ssh git
-RUN mkdir /var/build
-COPY . /var/build
-RUN ssh-keyscan gitlab.mamba.ru >> /root/.ssh/known_hosts
-WORKDIR /var/build
-RUN make release ARGS=-j{nproc --all}
+ENV LD_LIBRARY_PATH=/usr/local/lib
+RUN apt update; apt install  -y libsnappy1v5; rm -rf /var/lib/{apt,dpkg,cache,log}/
+COPY binaries/prefixdbd  /usr/local/bin/	
+COPY libs/lib/ /usr/local/lib
+
+
