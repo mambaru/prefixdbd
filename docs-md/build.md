@@ -28,7 +28,8 @@ BOOST_ROOT=/usr/monamour/boost/ ROCKSDB_ROOT=/usr/monamour/rocksdb/ make release
 make release
 ```
 
-# Сборка RocksDB (минимум 1.76, но лучше последняя)
+# Сборка Boost
+
 ```bash
 wget https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.gz
 tar -xvf boost_1_81_0.tar.gz
