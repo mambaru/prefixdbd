@@ -72,17 +72,15 @@ new:master <- new:slave
 ## Особенности перезаливки базы при миграции
 
 
-### По шагам для версии old:master 0.9.2 и выше
+### По шагам 
 
-* Смотрим версию на old:master `./prefixdbd -v`, если падает с ошибкой `error while loading shared libraries` то это точно совсем старая версия ниже 0.9.0
-* Делаем деплой на new:master
 * Убеждаемся, что old:master запущен как мастер (с конфигурацией master.conf)
 * На new:master изменяем поле addr в **client-tcp** на реальный ip-адрес `<<old:master>>` в `master-slave.conf`
-* На new:master запускаем `./rsync-db.sh <<old:master addr>>` для копирования базы
+* На new:master запускаем `./rsync-db.sh <<old:master addr>> 3600` для копирования базы. Здесь 3600 предполагаемое время в секундах необходимое для копирования. На это время мастер перстает производить запись на диск.  
 * На new:master запускаем `./master-slave.sh start`
 * Сейчас на new:master работает слейв для old:master'а
 * Делаем деплой на new:slave
-* На new:slave запускаем `./rsync-db.sh <<new:master>>` для копирования базы 
+* На new:slave запускаем `./rsync-db.sh <<new:master>> 3600` для копирования базы 
 * На new:slave изменяем addr в **client-tcp** на` <<new:master>>` в `slave.conf`
 * На new:slave запускаем `./slave.sh start`
 * Работает цепочка `old:master`->`new:master`->`new:slave`
