@@ -1,6 +1,10 @@
 FROM debian
-COPY binaries/prefixdbd  /usr/local/bin/	
-RUN groupadd -g 80 www \
-    && useradd -u 30 --shell /sbin/nologin --group www wwwrun;
-WORKDIR /usr/monamour/prefixdb/
-USER wwwrun
+ENV LANG ru_RU.UTF-8
+ENV TZ="Europe/Moscow"
+RUN apt update
+RUN apt -y install g++ cmake git wget make
+COPY . /prj
+WORKDIR "/prj"
+RUN make release
+RUN make install
+RUN rm -rf /prj

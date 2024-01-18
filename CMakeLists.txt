@@ -1,10 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-#set(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
-#set(BUILD_SHARED_LIBS OFF)
-#set(CMAKE_EXE_LINKER_FLAGS "-static")
-
-project(prefixdbd)
+project(prefixdbd VERSION "0.9.8")
 
 include(cmake/ci.cmake)
 
@@ -17,3 +13,5 @@ if ( BUILD_TESTING )
   enable_testing()
   add_subdirectory(tests)
 endif()
+
+include(cmake/install.cmake)
